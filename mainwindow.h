@@ -2,6 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QFile>
+#include <QDir>
+#include<QMessageBox>
+#include<QDebug>
 
 namespace Ui {
 class MainWindow;
@@ -17,6 +21,10 @@ public:
 
 private:
     Ui::MainWindow *ui;
+
+private slots:
+    void showTab(int currentTab);
+    void onTabChange(int currentTab);
 };
 
 #endif // MAINWINDOW_H
