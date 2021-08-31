@@ -6,6 +6,7 @@
 #include <QDir>
 #include<QMessageBox>
 #include<QDebug>
+#include<string>
 
 namespace Ui {
 class MainWindow;
@@ -25,6 +26,10 @@ private:
 private slots:
     void showTab(int currentTab);
     void onTabChange(int currentTab);
+    void onKillProcess();
+    void onRefreshProcess();
+
+
 };
 
 #endif // MAINWINDOW_H

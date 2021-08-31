@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>631</width>
+    <width>633</width>
     <height>389</height>
    </rect>
   </property>
@@ -24,38 +24,17 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
-    <widget class="QWidget" name="ProcessTab">
+    <widget class="QWidget" name="PerformanceTab_2">
+     <attribute name="title">
+      <string>Performance</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="processTab">
      <attribute name="title">
       <string>Process</string>
      </attribute>
-     <widget class="QPushButton" name="killButton">
-      <property name="geometry">
-       <rect>
-        <x>360</x>
-        <y>220</y>
-        <width>99</width>
-        <height>27</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Kill Process</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="refreshButton">
-      <property name="geometry">
-       <rect>
-        <x>478</x>
-        <y>220</y>
-        <width>121</width>
-        <height>27</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Refresh Process</string>
-      </property>
-     </widget>
      <widget class="QListWidget" name="processList">
       <property name="geometry">
        <rect>
@@ -79,17 +58,43 @@
        <string>Total Processes:</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_3">
+     <widget class="QLabel" name="nPSleepLabel">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>230</y>
-        <width>131</width>
+        <x>150</x>
+        <y>250</y>
+        <width>67</width>
         <height>17</height>
        </rect>
       </property>
       <property name="text">
-       <string>Running Processes:</string>
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="nPActiveLabel">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>230</y>
+        <width>67</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="killButton">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>220</y>
+        <width>99</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Kill Process</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_4">
@@ -103,6 +108,19 @@
       </property>
       <property name="text">
        <string>Sleeping Processes:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>230</y>
+        <width>131</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Running Processes:</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_5">
@@ -131,30 +149,17 @@
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="nPActiveLabel">
+     <widget class="QPushButton" name="refreshButton">
       <property name="geometry">
        <rect>
-        <x>150</x>
-        <y>230</y>
-        <width>67</width>
-        <height>17</height>
+        <x>478</x>
+        <y>220</y>
+        <width>121</width>
+        <height>27</height>
        </rect>
       </property>
       <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="nPSleepLabel">
-      <property name="geometry">
-       <rect>
-        <x>150</x>
-        <y>250</y>
-        <width>67</width>
-        <height>17</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
+       <string>Refresh Process</string>
       </property>
      </widget>
      <widget class="QLabel" name="nPZombieLabel">
@@ -171,11 +176,6 @@
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="PerformanceTab">
-     <attribute name="title">
-      <string>Performance</string>
-     </attribute>
-    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -183,7 +183,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>631</width>
+     <width>633</width>
      <height>25</height>
     </rect>
    </property>
@@ -199,6 +199,12 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>processList</tabstop>
+  <tabstop>tabs</tabstop>
+  <tabstop>refreshButton</tabstop>
+  <tabstop>killButton</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
