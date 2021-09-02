@@ -6,13 +6,16 @@ https://blog.csdn.net/ljheee/article/details/70230016
 */
 
 #include "mainwindow.h"
-#include "ui_mainwindow.h" 
+#include "ui_mainwindow.h"
+#include "server.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    firstConnect = 1;
+
     QWidget::connect(ui->tabs, SIGNAL( currentChanged(int)),this, SLOT( onTabChange(int)));
     QWidget::connect(ui->killButton, SIGNAL(clicked(bool)),this, SLOT(onKillProcess()));
     QWidget::connect(ui->refreshButton, SIGNAL(clicked(bool)),this,SLOT(onRefreshProcess()));
@@ -56,7 +59,6 @@ void MainWindow::showTab(int currentTab)
                 return;
             }
             text = file.readLine();
-            qCritical(text.toUtf8().constData());
 
             if(text.length()==0)
             {
@@ -99,8 +101,15 @@ void MainWindow::showTab(int currentTab)
             ui->nPSleepLabel->setText(QString::number(nPSleep,10));
             ui->nPZombieLabel->setText(QString::number(nPZombie,10));
 
-
         }
+    } else if(currentTab==2){
+        if(firstConnect==1){
+            ui->chatRoom->clear();
+            firstConnect = 0;
+            Server *server = new Server();
+            server->startServer();
+        }
+
     }
 }
 
@@ -123,6 +132,13 @@ void MainWindow::onTabChange(int currentTab)
 
 void MainWindow::onRefreshProcess(){
     showTab(1);
+}
+
+void MainWindow::addItemToChattingRoom(qintptr id, QByteArray text)
+{
+    QString str = QTextCodec::codecForMib(1015)->toUnicode(text);
+    QListWidgetItem *chat = new QListWidgetItem(id+" "+str, ui->chatRoom);
+    ui->chatRoom->addItem(chat);
 }
 
 MainWindow::~MainWindow()

@@ -4,9 +4,10 @@
 #include <QMainWindow>
 #include <QFile>
 #include <QDir>
-#include<QMessageBox>
-#include<QDebug>
-#include<string>
+#include <QMessageBox>
+#include <QDebug>
+#include <string>
+#include <QTextCodec>
 
 namespace Ui {
 class MainWindow;
@@ -19,16 +20,18 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    void addItemToChattingRoom(qintptr id, QByteArray text);
+
 
 private:
     Ui::MainWindow *ui;
+    int firstConnect;
 
 private slots:
     void showTab(int currentTab);
     void onTabChange(int currentTab);
     void onKillProcess();
     void onRefreshProcess();
-
 
 };
 
