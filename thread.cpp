@@ -27,13 +27,8 @@ void Thread::readyRead()
     QByteArray data = socket->readAll();
     qDebug() << socketDescriptor << "Input a message:" << data;
     socket->write(data);
-    MainWindow win;
-//    foreach (QWidget *widget, QApplication::topLevelWidgets())
-//    {
-//        if (typeid(widget)==typeid(MainWindow))
-//                win = widget;
-//    }
-//    win.addItemToChattingRoom(socketDescriptor,data);
+    QString text = QString::fromUtf8(data);
+    emit requestAddingItem(text);
 }
 
 void Thread::disconnected()

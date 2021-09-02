@@ -6,6 +6,7 @@
 #include <QTcpSocket>
 #include <QDebug>
 #include <typeinfo>
+#include <functional>
 #include "mainwindow.h"
 
 class Thread : public QThread
@@ -17,6 +18,8 @@ public:
 
 signals:
     void error(QTcpSocket::SocketError socketError);
+    void requestAddingItem(QString text);
+
 public slots:
     void readyRead();
     void disconnected();

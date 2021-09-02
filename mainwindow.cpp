@@ -106,7 +106,10 @@ void MainWindow::showTab(int currentTab)
         if(firstConnect==1){
             ui->chatRoom->clear();
             firstConnect = 0;
+
             Server *server = new Server();
+
+            QObject::connect(server, SIGNAL(requestAddingItem(QString)), this, SLOT(addItemToChattingRoom(QString)));
             server->startServer();
         }
 
@@ -134,10 +137,10 @@ void MainWindow::onRefreshProcess(){
     showTab(1);
 }
 
-void MainWindow::addItemToChattingRoom(qintptr id, QByteArray text)
+void MainWindow::addItemToChattingRoom(QString text)
 {
-    QString str = QTextCodec::codecForMib(1015)->toUnicode(text);
-    QListWidgetItem *chat = new QListWidgetItem(id+" "+str, ui->chatRoom);
+    //QString str = QTextCodec::codecForMib(1015)->toUnicode(text);
+    QListWidgetItem *chat = new QListWidgetItem(text, ui->chatRoom);
     ui->chatRoom->addItem(chat);
 }
 

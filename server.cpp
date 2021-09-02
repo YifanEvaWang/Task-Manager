@@ -21,6 +21,8 @@ void Server::incomingConnection(qintptr socketDescriptor)
 {
     qDebug() << socketDescriptor << "connecting...";
     Thread *thread = new Thread(this, socketDescriptor);
+    QObject::connect(thread, SIGNAL(requestAddingItem(QString)), this, SIGNAL(requestAddingItem(QString)));
     connect(thread, SIGNAL(finished()), thread, SLOT(deleteLater()));
     thread->start();
 }
+

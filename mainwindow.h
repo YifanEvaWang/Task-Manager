@@ -8,6 +8,8 @@
 #include <QDebug>
 #include <string>
 #include <QTextCodec>
+#include <QMetaType>
+
 
 namespace Ui {
 class MainWindow;
@@ -20,7 +22,9 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    void addItemToChattingRoom(qintptr id, QByteArray text);
+
+public slots:
+    void addItemToChattingRoom(QString text);
 
 
 private:

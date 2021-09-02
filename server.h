@@ -13,14 +13,13 @@ public:
     explicit Server(QObject *parent = 0);
     void startServer();
 
-signals:
-
-public slots:
-
 protected:
     void incomingConnection(qintptr socketDescriptor);
 
-private:
+
+signals:
+    void requestAddingItem(QString text);
+
 };
 
 #endif // MYSERVER_H
