@@ -1,6 +1,7 @@
 /*Author: Yifan Wang
 Date: Aug 25th 2021
 References:
+https://forum.qt.io/topic/91556/how-do-i-solve-the-error-specializing-member-requires-template-syntax/6
 https://stackoverflow.com/a/4644922
 https://blog.csdn.net/ljheee/article/details/70230016
 */

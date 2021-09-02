@@ -1,3 +1,10 @@
+/* Author: Yifan(Emma) Wang
+ * Date: Sept 1st 2021
+ * reference:
+ * https://stackoverflow.com/questions/16474099/qobject-connect-cannot-queue-arguments-of-type-qitemselection
+ * https://www.youtube.com/watch?v=iKtCXUHsV70&t=1224s
+  */
+
 #include "thread.h"
 
 Thread::Thread(QObject *parent, qintptr id): QThread(parent)
